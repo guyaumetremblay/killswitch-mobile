@@ -65,7 +65,7 @@ kotlin {
 
 android {
     namespace = "com.mirego.killswitch.sample"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 26
     }
