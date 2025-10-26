@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.ktlint)
     alias(libs.plugins.mirego.publish)
     alias(libs.plugins.mirego.release)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
 }
 
 group = "com.mirego.killswitch-mobile"
@@ -86,9 +86,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
-
-release {
-    checkTasks = listOf("check")
-    buildTasks = listOf("publish")
-    updateVersionPart = 2
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = true)
+    signAllPublications()
 }
