@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
@@ -6,10 +8,8 @@ plugins {
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-            }
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
     iosX64()
@@ -65,7 +65,7 @@ kotlin {
 
 android {
     namespace = "com.mirego.killswitch.sample"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 26
     }

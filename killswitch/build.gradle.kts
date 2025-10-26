@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
@@ -5,17 +7,15 @@ plugins {
     alias(libs.plugins.ktlint)
     alias(libs.plugins.mirego.publish)
     alias(libs.plugins.mirego.release)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
 }
 
 group = "com.mirego.killswitch-mobile"
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-            }
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
         publishLibraryVariants("release")
     }
@@ -86,9 +86,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
-
-release {
-    checkTasks = listOf("check")
-    buildTasks = listOf("publish")
-    updateVersionPart = 2
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = true)
+    signAllPublications()
 }
