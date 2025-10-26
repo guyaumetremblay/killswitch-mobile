@@ -4,15 +4,14 @@ androidGradlePlugin = "8.1.2"
 androidJunit = "1.1.5"
 annotation = "1.7.0"
 composeBom = "2023.09.02"
-composeCompiler = "1.5.3"
 composeUtils = "1.0.1-dev47"
 coroutines = "1.7.1"
 espresso = "3.5.1"
 junit = "4.13.2"
-kotlin = "1.9.10"
+kotlin = "2.2.21"
 kotlinxSerialization = "1.6.0"
 ktlint = "11.0.0"
-ktor = "2.3.7"
+ktor = "3.3.1"
 ktx = "1.12.0"
 lifecycle = "2.6.2"
 miregoPublish = "1.0"
@@ -45,6 +44,8 @@ ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serializatio
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 mirego-publish = { id = "mirego.publish", version.ref = "miregoPublish" }
 mirego-release = { id = "mirego.release", version.ref = "miregoRelease" }
